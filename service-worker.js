@@ -18,15 +18,15 @@
 'use strict';
 
 // CODELAB: Update cache names any time any of the cached files change.
-const CACHE_NAME = 'static-cache-v1';
+const CACHE_NAME = 'static-cache-v2';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
-    '/',
-    '/js/app.js',
-    '/js/pouchdb.min.js',
-    '/css/app.css',
-    '/index.html',
+    
+    'js/app.js',
+    'js/pouchdb.min.js',
+    'css/app.css',
+    'index.html',
 ];
 
 self.addEventListener('install', (evt) => {
