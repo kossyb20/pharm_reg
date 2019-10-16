@@ -10,8 +10,6 @@ addEventListener('install', event => {
     const cache = await caches.open(staticCacheName);
 
     await cache.addAll([
-      './',
-      './images/speedometer.png',
       './js/app.js',
       './js/pouchdb.min.js',
       './css/app.css',
