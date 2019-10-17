@@ -10,6 +10,7 @@ addEventListener('install', event => {
     const cache = await caches.open(staticCacheName);
 
     await cache.addAll([
+      './',
       './js/app.js',
       './js/pouchdb.min.js',
       './css/app.css',
@@ -30,9 +31,22 @@ addEventListener('activate', event => {
   })());
 });
 
+// addEventListener('fetch', event => {
+//   const url = new URL(event.request.url);
+//   event.respondWith(
+//     caches.match(event.request).then(r => r || fetch(event.request))
+//   );
+// });
+
 addEventListener('fetch', event => {
-  const url = new URL(event.request.url);
   event.respondWith(
-    caches.match(event.request).then(r => r || fetch(event.request))
+    caches.match(event.request)
+    .then(function(cachedFiles) {
+        if(cachedFiles) {
+            return cachedFiles;
+        } else {
+            return fetch(event.request);
+        }
+    })
   );
 });
